@@ -1,39 +1,39 @@
 # GeminiDebtAgent
 
-An AI-powered debt collection system using Gemini AI and WhatsApp integration for automated debt management and collection.
+Sistem penagihan hutang bertenaga AI menggunakan Gemini AI dan integrasi WhatsApp untuk manajemen dan penagihan hutang otomatis.
 
-## Features
+## Fitur
 
-- **AI-Powered Communication**: Uses Google's Gemini AI for intelligent debt collection conversations
-- **WhatsApp Integration**: Automated messaging through WhatsApp using Baileys
-- **MySQL Database**: Robust data storage with Sequelize ORM
-- **RESTful API**: Complete REST API for debt and debtor management
-- **Authentication**: JWT-based authentication with role-based access control
-- **Dashboard Analytics**: Comprehensive dashboard with debt collection statistics
-- **Automated Reminders**: Scheduled debt reminders and escalation system
-- **Payment Tracking**: Track payments and update debt status automatically
+- **Komunikasi Bertenaga AI**: Menggunakan Gemini AI Google untuk percakapan penagihan hutang yang cerdas
+- **Integrasi WhatsApp**: Pesan otomatis melalui WhatsApp menggunakan Baileys
+- **Database MySQL**: Penyimpanan data yang kuat dengan Sequelize ORM
+- **RESTful API**: API REST lengkap untuk manajemen hutang dan debitur
+- **Autentikasi**: Autentikasi berbasis JWT dengan kontrol akses berbasis peran
+- **Analitik Dashboard**: Dashboard komprehensif dengan statistik penagihan hutang
+- **Pengingat Otomatis**: Sistem pengingat hutang terjadwal dan eskalasi
+- **Pelacakan Pembayaran**: Melacak pembayaran dan memperbarui status hutang secara otomatis
 
-## Technology Stack
+## Stack Teknologi
 
-- **Backend**: Node.js with Express.js
-- **Database**: MySQL with Sequelize ORM
+- **Backend**: Node.js dengan Express.js
+- **Database**: MySQL dengan Sequelize ORM
 - **AI**: Google Gemini AI
-- **WhatsApp**: Baileys library
-- **Authentication**: JWT with bcryptjs
+- **WhatsApp**: Library Baileys
+- **Autentikasi**: JWT dengan bcryptjs
 - **Logging**: Winston
-- **Scheduling**: node-cron
-- **Security**: Helmet, CORS, Rate limiting
+- **Penjadwalan**: node-cron
+- **Keamanan**: Helmet, CORS, Rate limiting
 
-## Prerequisites
+## Prasyarat
 
 - Node.js >= 18.0.0
-- MySQL database
-- Google Gemini AI API key
-- WhatsApp account for bot integration
+- Database MySQL
+- API key Google Gemini AI
+- Akun WhatsApp untuk integrasi bot
 
-## Installation
+## Instalasi
 
-1. Clone the repository:
+1. Clone repository:
 ```bash
 git clone https://github.com/yourusername/GeminiDebtAgent.git
 cd GeminiDebtAgent
@@ -44,18 +44,18 @@ cd GeminiDebtAgent
 npm install
 ```
 
-3. Create environment file:
+3. Buat file environment:
 ```bash
 cp .env.example .env
 ```
 
-4. Configure environment variables in `.env`:
+4. Konfigurasi environment variables di `.env`:
 ```env
-# Server Configuration
+# Konfigurasi Server
 PORT=3000
 NODE_ENV=development
 
-# Database Configuration
+# Konfigurasi Database
 DB_HOST=localhost
 DB_PORT=3306
 DB_NAME=debt_collection
@@ -63,34 +63,34 @@ DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 DB_DIALECT=mysql
 
-# JWT Configuration
+# Konfigurasi JWT
 JWT_SECRET=your-super-secret-jwt-key
 JWT_REFRESH_SECRET=your-super-secret-refresh-key
 
-# Gemini AI Configuration
+# Konfigurasi Gemini AI
 GEMINI_API_KEY=your-gemini-api-key
 
-# WhatsApp Configuration
+# Konfigurasi WhatsApp
 WHATSAPP_SESSION_PATH=./whatsapp-session
 ```
 
-5. Create MySQL database:
+5. Buat database MySQL:
 ```sql
 CREATE DATABASE debt_collection;
 ```
 
-6. Start the application:
+6. Jalankan aplikasi:
 ```bash
-# Development mode
+# Mode development
 npm run dev
 
-# Production mode
+# Mode production
 npm start
 ```
 
-## API Documentation
+## Dokumentasi API
 
-### Authentication
+### Autentikasi
 
 #### Login
 ```http
@@ -109,15 +109,15 @@ GET /api/auth/profile
 Authorization: Bearer <token>
 ```
 
-### Debtors Management
+### Manajemen Debitur
 
-#### Get All Debtors
+#### Dapatkan Semua Debitur
 ```http
 GET /api/debtors?page=1&limit=10&search=john
 Authorization: Bearer <token>
 ```
 
-#### Create Debtor
+#### Buat Debitur
 ```http
 POST /api/debtors
 Authorization: Bearer <token>
@@ -132,15 +132,15 @@ Content-Type: application/json
 }
 ```
 
-### Debts Management
+### Manajemen Hutang
 
-#### Get All Debts
+#### Dapatkan Semua Hutang
 ```http
 GET /api/debts?page=1&limit=10&status=pending
 Authorization: Bearer <token>
 ```
 
-#### Create Debt
+#### Buat Hutang
 ```http
 POST /api/debts
 Authorization: Bearer <token>
@@ -155,7 +155,7 @@ Content-Type: application/json
 }
 ```
 
-#### Add Payment
+#### Tambah Pembayaran
 ```http
 POST /api/debts/:id/payments
 Authorization: Bearer <token>
@@ -168,15 +168,15 @@ Content-Type: application/json
 }
 ```
 
-### WhatsApp Integration
+### Integrasi WhatsApp
 
-#### Get WhatsApp Status
+#### Dapatkan Status WhatsApp
 ```http
 GET /api/whatsapp/status
 Authorization: Bearer <token>
 ```
 
-#### Send Test Message
+#### Kirim Pesan Test
 ```http
 POST /api/whatsapp/send-test
 Authorization: Bearer <token>
@@ -188,7 +188,7 @@ Content-Type: application/json
 }
 ```
 
-#### Send Reminder
+#### Kirim Pengingat
 ```http
 POST /api/whatsapp/send-reminder/:debtId
 Authorization: Bearer <token>
@@ -199,39 +199,39 @@ Content-Type: application/json
 }
 ```
 
-### Dashboard Analytics
+### Analitik Dashboard
 
-#### Get Overview Statistics
+#### Dapatkan Statistik Overview
 ```http
 GET /api/dashboard/overview?period=30
 Authorization: Bearer <token>
 ```
 
-#### Get Debt Status Distribution
+#### Dapatkan Distribusi Status Hutang
 ```http
 GET /api/dashboard/debt-status-distribution
 Authorization: Bearer <token>
 ```
 
-## Default Users
+## User Default
 
-The system comes with two default users:
+Sistem dilengkapi dengan dua user default:
 
-1. **Admin User**
+1. **User Admin**
    - Username: `admin`
    - Password: `password`
    - Role: `admin`
 
-2. **Collector User**
+2. **User Collector**
    - Username: `collector`
    - Password: `password`
    - Role: `collector`
 
-**Important**: Change these default passwords in production!
+**Penting**: Ubah password default ini di production!
 
-## Database Schema
+## Skema Database
 
-### Debtors Table
+### Tabel Debtors
 - `id` (Primary Key)
 - `name` (String, required)
 - `phone` (String, required, unique)
@@ -245,7 +245,7 @@ The system comes with two default users:
 - `paymentHistory` (JSON)
 - `timestamps`
 
-### Debts Table
+### Tabel Debts
 - `id` (Primary Key)
 - `debtorId` (Foreign Key)
 - `invoiceNumber` (String, unique)
@@ -266,98 +266,98 @@ The system comes with two default users:
 - `isActive` (Boolean)
 - `timestamps`
 
-## Scheduled Tasks
+## Tugas Terjadwal
 
-The system includes automated scheduled tasks:
+Sistem mencakup tugas terjadwal otomatis:
 
-- **Daily Reminders**: Sends reminders to debtors with overdue payments
-- **Escalation Processing**: Escalates debts that haven't been paid after multiple reminders
-- **Daily Statistics**: Generates daily collection statistics
-- **Weekly Reports**: Creates weekly performance reports
-- **Data Cleanup**: Removes old logs and temporary data
+- **Pengingat Harian**: Mengirim pengingat kepada debitur dengan pembayaran yang terlambat
+- **Pemrosesan Eskalasi**: Mengeskalasi hutang yang belum dibayar setelah beberapa pengingat
+- **Statistik Harian**: Menghasilkan statistik penagihan harian
+- **Laporan Mingguan**: Membuat laporan kinerja mingguan
+- **Pembersihan Data**: Menghapus log lama dan data sementara
 
-## Security Features
+## Fitur Keamanan
 
-- JWT-based authentication
-- Password hashing with bcryptjs
-- Rate limiting on authentication endpoints
-- CORS protection
-- Helmet security headers
-- Input validation and sanitization
-- Role-based access control
+- Autentikasi berbasis JWT
+- Hashing password dengan bcryptjs
+- Rate limiting pada endpoint autentikasi
+- Proteksi CORS
+- Header keamanan Helmet
+- Validasi dan sanitasi input
+- Kontrol akses berbasis peran
 
 ## Logging
 
-The system uses Winston for comprehensive logging:
+Sistem menggunakan Winston untuk logging komprehensif:
 
-- **Combined logs**: All application logs
-- **Error logs**: Error-specific logs
-- **Debug logs**: Debug information
-- **Exception logs**: Uncaught exceptions
-- **Rejection logs**: Unhandled promise rejections
+- **Combined logs**: Semua log aplikasi
+- **Error logs**: Log khusus error
+- **Debug logs**: Informasi debug
+- **Exception logs**: Exception yang tidak tertangkap
+- **Rejection logs**: Promise rejection yang tidak ditangani
 
 ## Development
 
-### Running in Development Mode
+### Menjalankan dalam Mode Development
 ```bash
 npm run dev
 ```
 
-### Running Tests
+### Menjalankan Tests
 ```bash
 npm test
 ```
 
-### Project Structure
+### Struktur Proyek
 ```
 src/
 ├── config/
-│   └── database.js          # Database configuration
+│   └── database.js          # Konfigurasi database
 ├── models/
-│   ├── debtor.model.js      # Debtor model
-│   └── debt.model.js        # Debt model
+│   ├── debtor.model.js      # Model debitur
+│   └── debt.model.js        # Model hutang
 ├── routes/
-│   ├── index.js             # Main router
-│   ├── auth.routes.js       # Authentication routes
-│   ├── debtor.routes.js     # Debtor management routes
-│   ├── debt.routes.js       # Debt management routes
-│   ├── whatsapp.routes.js   # WhatsApp integration routes
-│   └── dashboard.routes.js  # Dashboard analytics routes
+│   ├── index.js             # Router utama
+│   ├── auth.routes.js       # Routes autentikasi
+│   ├── debtor.routes.js     # Routes manajemen debitur
+│   ├── debt.routes.js       # Routes manajemen hutang
+│   ├── whatsapp.routes.js   # Routes integrasi WhatsApp
+│   └── dashboard.routes.js  # Routes analitik dashboard
 ├── services/
-│   ├── whatsapp.service.js  # WhatsApp service
-│   ├── gemini.service.js    # Gemini AI service
-│   └── debt-collection.service.js # Debt collection logic
+│   ├── whatsapp.service.js  # Service WhatsApp
+│   ├── gemini.service.js    # Service Gemini AI
+│   └── debt-collection.service.js # Logika penagihan hutang
 ├── schedulers/
-│   └── debt-reminder.scheduler.js # Scheduled tasks
+│   └── debt-reminder.scheduler.js # Tugas terjadwal
 ├── utils/
-│   └── logger.js            # Logging utility
-└── index.js                 # Application entry point
+│   └── logger.js            # Utility logging
+└── index.js                 # Entry point aplikasi
 ```
 
-## Contributing
+## Kontribusi
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+1. Fork repository
+2. Buat feature branch
+3. Lakukan perubahan
+4. Tambahkan test jika diperlukan
+5. Submit pull request
 
-## License
+## Lisensi
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Proyek ini dilisensikan di bawah MIT License - lihat file LICENSE untuk detail.
 
-## Support
+## Dukungan
 
-For support and questions, please open an issue on GitHub or contact the development team.
+Untuk dukungan dan pertanyaan, silakan buka issue di GitHub atau hubungi tim development.
 
 ## Changelog
 
-### Version 1.0.0
-- Initial release
-- Basic debt collection functionality
-- WhatsApp integration
-- Gemini AI integration
-- MySQL database support
-- Authentication system
-- Dashboard analytics
-- Automated reminders
+### Versi 1.0.0
+- Rilis awal
+- Fungsionalitas penagihan hutang dasar
+- Integrasi WhatsApp
+- Integrasi Gemini AI
+- Dukungan database MySQL
+- Sistem autentikasi
+- Analitik dashboard
+- Pengingat otomatis
